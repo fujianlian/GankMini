@@ -1,5 +1,7 @@
 {
   "pages": [
+    "pages/home/home",
+    "pages/sort/sort",
     "pages/index/index",
     "pages/userConsole/userConsole",
     "pages/storageConsole/storageConsole",
@@ -7,15 +9,14 @@
     "pages/addFunction/addFunction",
     "pages/deployFunctions/deployFunctions",
     "pages/chooseLib/chooseLib",
-    "pages/openapi/openapi",
-    "pages/sort/sort"
+    "pages/openapi/openapi"
   ],
   "tabBar": {
     "color": "#999999",
     "selectedColor": "#3bb44c",
     "list": [
       {
-        "pagePath": "pages/index/index",
+        "pagePath": "pages/home/home",
         "iconPath": "images/home.png",
         "selectedIconPath": "images/home_sel.png",
         "text": "最新"

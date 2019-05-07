@@ -10,7 +10,7 @@
 .top-nav-wrapper {
   background-color: #3bb44c;
   white-space: nowrap;
-  overflow:hidden;
+  overflow: hidden;
 }
 
 .tab-item {
@@ -63,9 +63,12 @@
   opacity: 0.8;
   font-size: 28rpx;
   line-height: 40rpx;
-  line-clamp: 2;
+  display: -webkit-box;
   overflow: hidden;
   text-overflow: ellipsis;
+  word-break: break-all;
+  -webkit-box-orient: vertical;
+  -webkit-line-clamp: 2;
 }
 
 .swiper-item-date-wrapper {

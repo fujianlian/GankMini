@@ -1,0 +1,8 @@
+<!--pages/home/home.wxml-->
+<swiper style='height:46vw' indicator-active-color="#3bb44c" indicator-color="rgba(59, 180, 76, 0.3)" indicator-dots autoplay circular interval="{{interval}}" duration="{{duration}}">
+  <block wx:for="{{photoList}}" wx:key="*this">
+    <swiper-item bindtap='previewImg' data-current='{{current}}'>
+      <image src='{{item}}' mode='aspectFill'></image>
+    </swiper-item>
+  </block>
+</swiper>

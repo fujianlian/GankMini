@@ -16,7 +16,7 @@
         <view class="swiper-items" wx:for="{{newsList[index]}}" wx:key="newsList" wx:if="{{index!==0}}" data-index="{{index}}" bindtap='goDetail'>
           <view class="swiper-item-texts">
             <view class="swiper-item-title">{{item.desc}}</view>
-            <image wx:if='{{item.images.length}}' class="swiper-item-image" src='{{item.images[0]}}' mode='aspectFit'></image>
+            <image wx:if='{{item.images.length}}' class="swiper-item-image" src='{{item.images[0]}}'></image>
           </view>
           <view class='swiper-item-date-wrapper'>
             <view class="swiper-item-who">{{item.who}}</view>
