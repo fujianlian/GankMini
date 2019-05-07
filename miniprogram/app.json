@@ -1,0 +1,51 @@
+{
+  "pages": [
+    "pages/index/index",
+    "pages/userConsole/userConsole",
+    "pages/storageConsole/storageConsole",
+    "pages/databaseGuide/databaseGuide",
+    "pages/addFunction/addFunction",
+    "pages/deployFunctions/deployFunctions",
+    "pages/chooseLib/chooseLib",
+    "pages/openapi/openapi",
+    "pages/sort/sort"
+  ],
+  "tabBar": {
+    "color": "#999999",
+    "selectedColor": "#3bb44c",
+    "list": [
+      {
+        "pagePath": "pages/index/index",
+        "iconPath": "images/home.png",
+        "selectedIconPath": "images/home_sel.png",
+        "text": "最新"
+      },
+      {
+        "pagePath": "pages/sort/sort",
+        "iconPath": "images/sort.png",
+        "selectedIconPath": "images/sort_sel.png",
+        "text": "分类"
+      },
+      {
+        "pagePath": "pages/databaseGuide/databaseGuide",
+        "iconPath": "images/collect.png",
+        "selectedIconPath": "images/collect_sel.png",
+        "text": "收藏"
+      },
+      {
+        "pagePath": "pages/openapi/openapi",
+        "iconPath": "images/person.png",
+        "selectedIconPath": "images/person_sel.png",
+        "text": "我的"
+      }
+    ]
+  },
+  "window": {
+    "backgroundColor": "#f5f4f5",
+    "backgroundTextStyle": "dark",
+    "navigationBarBackgroundColor": "#3bb44c",
+    "navigationBarTitleText": "干货营",
+    "navigationBarTextStyle": "white"
+  },
+  "sitemapLocation": "sitemap.json"
+}

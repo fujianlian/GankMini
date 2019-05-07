@@ -1,0 +1,29 @@
+<!--pages/sort/sort.wxml-->
+<view class="tab-wrapper">
+  <scroll-view scroll-x class='top-nav-wrapper' scroll-left="{{scrollLeft}}">
+    <block wx:for="{{topNavs}}" wx:key='{{topNavs}}'>
+      <view wx:if="{{currentActiveNavIndex === index}}" class='tab-item active' data-current-index='{{index}}' bindtap='topNavChange'>
+        {{item}}
+      </view>
+      <view wx:else class='tab-item unactive' data-current-index='{{index}}' bindtap='topNavChange'>
+        {{item}}
+      </view>
+    </block>
+  </scroll-view>
+  <swiper bindchange="swiperChange" class="swiper-wrapper" current='{{currentActiveNavIndex}}'>
+    <block wx:for="{{topNavs}}" wx:key='{{bottomNavs}}'>
+      <swiper-item style="overflow: scroll">
+        <view class="swiper-items" wx:for="{{newsList[index]}}" wx:key="newsList" wx:if="{{index!==0}}" data-index="{{index}}" bindtap='goDetail'>
+          <view class="swiper-item-texts">
+            <view class="swiper-item-title">{{item.desc}}</view>
+            <image wx:if='{{item.images.length}}' class="swiper-item-image" src='{{item.images[0]}}' mode='aspectFit'></image>
+          </view>
+          <view class='swiper-item-date-wrapper'>
+            <view class="swiper-item-who">{{item.who}}</view>
+            <view class="swiper-item-date">{{item.publishedAt}}</view>
+          </view>
+        </view>
+      </swiper-item>
+    </block>
+  </swiper>
+</view>
