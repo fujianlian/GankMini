@@ -6,6 +6,7 @@ Page({
    */
   data: {
     photoList: [],
+    homeList: [],
     indicatorDots: true,
     vertical: false,
     autoplay: true,
@@ -18,38 +19,38 @@ Page({
    * 生命周期函数--监听页面加载
    */
   onLoad: function(options) {
-    this.getPhoto()
+    try {
+      let time = wx.getStorageSync('time')
+      let photo = wx.getStorageSync('photoList')
+      let home = wx.getStorageSync('homeList')
+      // 如果有数据缓存，24小时内不再重新请求
+      if (photo && this.getCurrentTime() - time < 60 * 60 * 24) {
+        let photoList = this.data.photoList;
+        photoList = JSON.parse(photo)
+        this.setData({
+          photoList
+        })
+      } else {
+        this.getPhoto()
+      }
+   
+      if (home && this.getCurrentTime() - time < 60 * 60 * 24) {
+        let homeList = this.data.homeList;
+        homeList = JSON.parse(home)
+        this.setData({
+          homeList
+        })
+      } else {
+        this.getHome()
+      }
+    } catch (e) {
+      console.log(e)
+      this.getPhoto()
+      this.getHome()
+    }
   },
 
-  /**
-   * 生命周期函数--监听页面初次渲染完成
-   */
-  onReady: function() {
-
-  },
-
-  /**
-   * 生命周期函数--监听页面显示
-   */
-  onShow: function() {
-
-  },
-
-  /**
-   * 生命周期函数--监听页面隐藏
-   */
-  onHide: function() {
-
-  },
-
-  /**
-   * 生命周期函数--监听页面卸载
-   */
-  onUnload: function() {
-
-  },
-
-  getPhoto(callback) {
+  getPhoto() {
     let that = this
     wx.request({
       url: `https://gank.io/api/data/福利/4/1`,
@@ -63,9 +64,40 @@ Page({
         that.setData({
           photoList
         })
-      },
-      complete: () => {
-        callback && callback()
+        try {
+          wx.setStorageSync('photoList', JSON.stringify(photoList))
+          wx.setStorageSync('time', that.getCurrentTime())
+        } catch (e) {
+          console.log(e)
+        }
+      }
+    })
+  },
+
+  getHome() {
+    console.log("getHome")
+    let that = this
+    wx.request({
+      url: `https://gank.io/api/today`,
+      success(res) {
+        let result = res.data.results
+        let category = res.data.category
+        let homeList = that.data.homeList;
+        for (let i = 0; i < category.length; i++) {
+          let a = result[category[i]]
+          homeList[i] = a[a.length - 1]
+          homeList[i].publishedAt = homeList[i].publishedAt.substring(0, 10)
+          homeList[i].who = homeList[i].who + " · " + homeList[i].type
+        }
+        that.setData({
+          homeList
+        })
+        try {
+          wx.setStorageSync('homeList', JSON.stringify(homeList))
+          wx.setStorageSync('time', that.getCurrentTime())
+        } catch (e) {
+          console.log(e)
+        }
       }
     })
   },
@@ -79,4 +111,8 @@ Page({
       urls: urls
     })
   },
+
+  getCurrentTime() {
+    return Math.floor(((new Date()).getTime()) / 1000)
+  }
 })

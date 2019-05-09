@@ -43,14 +43,14 @@ Page({
   },
 
   onLoad: function(options) {
-    this.getNewsList()
+    this.getList()
   },
 
   /**
    * 下拉刷新
    */
   onPullDownRefresh: function() {
-    this.getNewsList(() => {
+    this.getList(() => {
       wx.stopPullDownRefresh()
     })
   },
@@ -65,11 +65,11 @@ Page({
   },
 
   /**
-   * 获取新闻列表
+   * 获取分类列表
    * 
    * callback 请求完成回调
    */
-  getNewsList(callback) {
+  getList(callback) {
     let that = this;
     let type = this.data.topNavs[this.data.currentActiveNavIndex]
     let pageIndex = this.data.pageIndexs[this.data.currentActiveNavIndex]
@@ -157,18 +157,7 @@ Page({
    */
   judgeRequest() {
     if (this.data.newsList[this.data.currentActiveNavIndex].length === 0) {
-      this.getNewsList()
+      this.getList()
     }
-  },
-
-  /**
-   * 点击跳转详情页
-   */
-  goDetail(event) {
-    let index = event.currentTarget.dataset.index
-    let list = JSON.stringify(this.data.newsList[this.data.currentActiveNavIndex])
-    wx.navigateTo({
-      url: '/pages/detail/detail?index=' + index + '&list=' + list
-    })
-  },
+  }
 })

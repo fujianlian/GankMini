@@ -13,14 +13,16 @@
   <swiper bindchange="swiperChange" class="swiper-wrapper" current='{{currentActiveNavIndex}}'>
     <block wx:for="{{topNavs}}" wx:key='{{bottomNavs}}'>
       <swiper-item style="overflow: scroll">
-        <view class="swiper-items" wx:for="{{newsList[index]}}" wx:key="newsList" wx:if="{{index!==0}}" data-index="{{index}}" bindtap='goDetail'>
-          <view class="swiper-item-texts">
-            <view class="swiper-item-title">{{item.desc}}</view>
-            <image wx:if='{{item.images.length}}' class="swiper-item-image" src='{{item.images[0]}}'></image>
+        <view class="sort-items" wx:for="{{newsList[index]}}" wx:key="newsList" wx:if="{{index!==0}}" data-index="{{index}}">
+          <view class="sort-item-texts">
+            <view class=sort-item-title ">{{item.desc}}</view>
+            <view wx:if='{{item.images.length}}'>
+              <image class="sort-item-image " src='{{item.images[0]}}' mode='aspectFill'></image>
+            </view>
           </view>
-          <view class='swiper-item-date-wrapper'>
-            <view class="swiper-item-who">{{item.who}}</view>
-            <view class="swiper-item-date">{{item.publishedAt}}</view>
+          <view class='sort-item-date-wrapper'>
+            <view class="sort-item-who ">{{item.who}}</view>
+            <view class="sort-item-date ">{{item.publishedAt}}</view>
           </view>
         </view>
       </swiper-item>

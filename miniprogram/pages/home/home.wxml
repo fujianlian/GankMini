@@ -1,8 +1,23 @@
 <!--pages/home/home.wxml-->
-<swiper style='height:46vw' indicator-active-color="#3bb44c" indicator-color="rgba(59, 180, 76, 0.3)" indicator-dots autoplay circular interval="{{interval}}" duration="{{duration}}">
-  <block wx:for="{{photoList}}" wx:key="*this">
-    <swiper-item bindtap='previewImg' data-current='{{current}}'>
-      <image src='{{item}}' mode='aspectFill'></image>
-    </swiper-item>
-  </block>
-</swiper>
+<scroll-view scroll-y class='tab-wrapper'>
+  <swiper style='height:46vw' indicator-active-color="#3bb44c" indicator-color="rgba(59, 180, 76, 0.3)" indicator-dots autoplay circular interval="{{interval}}" duration="{{duration}}">
+    <block wx:for="{{photoList}}" wx:key="*this">
+      <swiper-item bindtap='previewImg' data-current='{{index}}'>
+        <image class='banner-image' src='{{item}}' mode='aspectFill'></image>
+      </swiper-item>
+    </block>
+  </swiper>
+
+  <view class="sort-items" wx:for="{{homeList}}" wx:key="homeList">
+    <view class="sort-item-texts">
+      <view class=sort-item-title ">{{item.desc}}</view>
+            <view wx:if='{{item.images.length}}'>
+              <image class="sort-item-image " src='{{item.images[0]}}' mode='aspectFill'></image>
+            </view>
+          </view>
+          <view class='sort-item-date-wrapper'>
+            <view class="sort-item-who ">{{item.who}}</view>
+            <view class="sort-item-date ">{{item.publishedAt}}</view>
+          </view>
+        </view>
+</scroll-view>

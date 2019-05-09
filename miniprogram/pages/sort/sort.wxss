@@ -1,12 +1,5 @@
 /* pages/sort/sort.wxss */
 
-.tab-wrapper {
-  flex-flow: column;
-  display: flex;
-  height: 100vh;
-  background: #f5f4f5;
-}
-
 .top-nav-wrapper {
   background-color: #3bb44c;
   white-space: nowrap;
@@ -37,58 +30,6 @@
 
 .swiper-wrapper {
   flex-grow: 1;
-}
-
-.swiper-items {
-  margin-bottom: 5rpx;
-  padding: 25rpx 30rpx;
-  display: flex;
-  flex-flow: column;
-  background: white;
-}
-
-.swiper-item-image {
-  width: 180rpx;
-  height: 120rpx;
-  margin-left: 20rpx;
-}
-
-.swiper-item-texts {
-  display: flex;
-  align-items: center;
-}
-
-.swiper-item-title {
-  flex-grow: 1;
-  opacity: 0.8;
-  font-size: 28rpx;
-  line-height: 40rpx;
-  display: -webkit-box;
-  overflow: hidden;
-  text-overflow: ellipsis;
-  word-break: break-all;
-  -webkit-box-orient: vertical;
-  -webkit-line-clamp: 2;
-}
-
-.swiper-item-date-wrapper {
-  display: flex;
-}
-
-.swiper-item-who {
-  margin-top: 20rpx;
-  opacity: 0.5;
-  font-size: 24rpx;
-  line-height: 28rpx;
-}
-
-.swiper-item-date {
-  flex: 1;
-  text-align: right;
-  opacity: 0.5;
-  margin-top: 20rpx;
-  font-size: 24rpx;
-  line-height: 28rpx;
 }
 
 ::-webkit-scrollbar {
