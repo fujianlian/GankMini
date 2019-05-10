@@ -1,0 +1,32 @@
+/* pages/person/person.wxss */
+
+.item-card {
+  display: flex;
+  align-items: center;
+  height: 110rpx;
+  background: white;
+  margin-bottom: 5rpx;
+  padding: 0 30rpx;
+}
+
+.button-wrapper {
+  position: relative;
+}
+
+.button {
+  position: absolute;
+  top: 0;
+  bottom: 0;
+  left: 0;
+  right: 0;
+  background-color: transparent;
+  z-index: 99;
+}
+
+.item-text {
+  font-size: 32rpx;
+  margin-left: 25rpx;
+  flex-grow: 1;
+}
+
+

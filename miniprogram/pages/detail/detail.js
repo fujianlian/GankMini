@@ -6,10 +6,11 @@ Page({
    */
   data: {
     _id: "",
+    openid: "",
     id: "",
     url: "",
     desc: "",
-    isCollect: false
+    isCollect: false,
   },
 
   /**
@@ -97,25 +98,21 @@ Page({
     })
   },
 
-  onQuery: function () {
+  onQuery() {
     const db = wx.cloud.database()
     // 查询当前用户所有的 counters
     db.collection('ganks').where({
       _openid: this.data.openid,
-      id:this.data.id
+      id: this.data.id
     }).get({
       success: res => {
+        let result = JSON.stringify(res.data, null, 2)
         this.setData({
-          queryResult: JSON.stringify(res.data, null, 2)
+          isCollect: result.length
         })
-        console.log('[数据库] [查询记录] 成功: ', res)
       },
       fail: err => {
-        wx.showToast({
-          icon: 'none',
-          title: '查询记录失败'
-        })
-        console.error('[数据库] [查询记录] 失败：', err)
+
       }
     })
   },

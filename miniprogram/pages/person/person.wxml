@@ -1,0 +1,21 @@
+<!--pages/person/person.wxml-->
+<view class='tab-wrapper'>
+  <view class='item-card' bindtap='copyGithub'>
+    <text class='iconfont icongithub:before' style='font-size:40rpx;color: #3bb44c'></text>
+    <view class='item-text'>Github</view>
+    <text class='iconfont iconyoujiantou:before' style='font-size:36rpx;color: #999'></text>
+  </view>
+  <view class='item-card' bindtap='goAbout'>
+    <text class='iconfont iconguanyu:before' style='font-size:34rpx;color: #3bb44c'></text>
+    <view class='item-text'>关于</view>
+    <text class='iconfont iconyoujiantou:before' style='font-size:36rpx;color: #999'></text>
+  </view>
+  <view class='button-wrapper'>
+    <view class='item-card'>
+      <text class='iconfont iconedit:before' style='font-size:40rpx;color: #3bb44c'></text>
+      <view class='item-text'>意见反馈</view>
+      <text class='iconfont iconyoujiantou:before' style='font-size:36rpx;color: #999'></text>
+    </view>
+    <button class='button' open-type='feedback'></button>
+  </view>
+</view>

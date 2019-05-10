@@ -1,0 +1,9 @@
+<!--pages/about/about.wxml-->
+<view class='tab-wrapper'>
+  <view class='about-page'>
+    <view class='text'>该项目是 干货集中营 移动端全家桶第三系列，之前已经实现了 Flutter，React Native 开发，浏览我的Github主页，找到Gank开头的项目就可以查看源码，后续会继续推出Kotlin版</view>
+    <view class='text'>收藏功能采用的是小程序的云开发功能，想要学习腾讯云nodejs方式开发的可以查看github上的 mall,movie 项目</view>
+    <view class='text'>目前小程序web-view组件暂不支持个人开发者展示，后续会朝着把h5解析成wxml方向尝试，敬请期待</view>
+    <view class='text'>如果你在使用过程中，遇到什么问题，或者有什么好的建议，欢迎反馈</view>
+  </view>
+</view>
