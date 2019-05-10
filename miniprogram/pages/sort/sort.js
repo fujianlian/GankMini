@@ -159,5 +159,14 @@ Page({
     if (this.data.newsList[this.data.currentActiveNavIndex].length === 0) {
       this.getList()
     }
-  }
+  },
+
+  goDetail(event) {
+    let index = event.currentTarget.dataset.index
+    let content = this.data.newsList[this.data.currentActiveNavIndex][index]
+    let image = content.images !== undefined && content.images.length ? content.images[0] : ""
+    wx.navigateTo({
+      url: `/pages/detail/detail?id=${content._id}&desc=${content.desc}&url=${content.url}&who=${content.who}&time=${content.publishedAt}&type=${content.type}&image=${image}`,
+    })
+  },
 })

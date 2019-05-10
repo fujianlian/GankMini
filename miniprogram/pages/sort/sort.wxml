@@ -13,7 +13,7 @@
   <swiper bindchange="swiperChange" class="swiper-wrapper" current='{{currentActiveNavIndex}}'>
     <block wx:for="{{topNavs}}" wx:key='{{bottomNavs}}'>
       <swiper-item style="overflow: scroll">
-        <view class="sort-items" wx:for="{{newsList[index]}}" wx:key="newsList" wx:if="{{index!==0}}" data-index="{{index}}">
+        <view class="sort-items" wx:for="{{newsList[index]}}" wx:key="newsList" wx:if="{{index!==0}}" data-index="{{index}}" data-index='{{index}}' bindtap='goDetail'>
           <view class="sort-item-texts">
             <view class=sort-item-title ">{{item.desc}}</view>
             <view wx:if='{{item.images.length}}'>

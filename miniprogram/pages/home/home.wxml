@@ -16,7 +16,7 @@
             </view>
           </view>
           <view class='sort-item-date-wrapper'>
-            <view class="sort-item-who">{{item.who}}</view>
+            <view class="sort-item-who">{{item.text}}</view>
             <view class="sort-item-date">{{item.publishedAt}}</view>
           </view>
         </view>

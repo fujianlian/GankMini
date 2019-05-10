@@ -6,14 +6,7 @@
     "pages/collect/collect",
     "pages/about/about",
     "pages/person/person",
-    "pages/index/index",
-    "pages/userConsole/userConsole",
-    "pages/storageConsole/storageConsole",
-    "pages/databaseGuide/databaseGuide",
-    "pages/addFunction/addFunction",
-    "pages/deployFunctions/deployFunctions",
-    "pages/chooseLib/chooseLib",
-    "pages/openapi/openapi"
+    "pages/index/index"
   ],
   "tabBar": {
     "color": "#999999",

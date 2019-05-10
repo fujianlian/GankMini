@@ -1,4 +1,7 @@
 // pages/detail/detail.js
+
+const app = getApp()
+
 Page({
 
   /**
@@ -10,6 +13,10 @@ Page({
     id: "",
     url: "",
     desc: "",
+    time: "",
+    type: "",
+    who: "",
+    images: "",
     isCollect: false,
   },
 
@@ -20,11 +27,27 @@ Page({
     let id = options.id
     let url = options.url
     let desc = options.desc
+    let time = options.time
+    let type = options.type
+    let who = options.who
+    let image = options.image
+    let _id = options._id === undefined ? "" : options._id
+    let isCollect = options._id === undefined ? false : true
     this.setData({
       id: id,
       url: url,
-      desc: desc
+      desc: desc,
+      time: time,
+      type: type,
+      who: who,
+      image: image,
+      openid: app.globalData.openid,
+      _id: _id,
+      isCollect: isCollect
     })
+    if (!isCollect) {
+      this.onQuery()
+    }
   },
 
   copy() {
@@ -56,7 +79,11 @@ Page({
       data: {
         id: this.data.id,
         title: this.data.desc,
-        link: this.data.url
+        link: this.data.url,
+        time: this.data.time,
+        type: this.data.type,
+        who: this.data.who,
+        image: this.data.image
       },
       success: res => {
         this.setData({
@@ -79,7 +106,7 @@ Page({
 
   cancelCollect() {
     const db = wx.cloud.database()
-    db.collection('ganks').doc("988c1b1b5cd12eae0d8c28bb31c4de80").remove({
+    db.collection('ganks').doc(this.data._id).remove({
       success: res => {
         wx.showToast({
           title: '已取消收藏',
@@ -106,13 +133,20 @@ Page({
       id: this.data.id
     }).get({
       success: res => {
-        let result = JSON.stringify(res.data, null, 2)
-        this.setData({
-          isCollect: result.length
-        })
+        let result = res.data
+        if (result.length > 0) {
+          this.setData({
+            isCollect: true,
+            _id: result[0]._id
+          })
+        } else {
+          this.setData({
+            isCollect: false
+          })
+        }
       },
       fail: err => {
-
+        console.log("query err:", err)
       }
     })
   },

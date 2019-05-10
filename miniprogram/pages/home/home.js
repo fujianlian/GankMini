@@ -1,4 +1,7 @@
 // pages/home/home.js
+
+const app = getApp()
+
 Page({
 
   /**
@@ -48,6 +51,8 @@ Page({
       this.getPhoto()
       this.getHome()
     }
+
+    this.onGetOpenid()
   },
 
   getPhoto() {
@@ -93,7 +98,7 @@ Page({
           let b = i + h
           homeList[b] = a[a.length - 1]
           homeList[b].publishedAt = homeList[b].publishedAt.substring(0, 10)
-          homeList[b].who = homeList[b].who + " · " + homeList[b].type
+          homeList[b].text = homeList[b].who + " · " + homeList[b].type
         }
         that.setData({
           homeList
@@ -125,8 +130,24 @@ Page({
   goDetail(event) {
     let index = event.currentTarget.dataset.index
     let content = this.data.homeList[index]
+    let image = content.images !== undefined && content.images.length ? content.images[0] : ""
     wx.navigateTo({
-      url: `/pages/detail/detail?id=${content._id}&desc=${content.desc}&url=${content.url}`,
+      url: `/pages/detail/detail?id=${content._id}&desc=${content.desc}&url=${content.url}&who=${content.who}&time=${content.publishedAt}&type=${content.type}&image=${image}`,
+    })
+  },
+
+  onGetOpenid() {
+    // 调用云函数
+    wx.cloud.callFunction({
+      name: 'login',
+      data: {},
+      success: res => {
+        console.log('[云函数] [login] user openid: ', res.result.openid)
+        app.globalData.openid = res.result.openid
+      },
+      fail: err => {
+        console.error('[云函数] [login] 调用失败', err)
+      }
     })
   },
 })
