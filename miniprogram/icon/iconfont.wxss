@@ -1,0 +1,28 @@
+@font-face {font-family: "iconfont";
+  src: url('//at.alicdn.com/t/font_1184854_9pd30hlhy5g.eot?t=1557470900570'); /* IE9 */
+  src: url('//at.alicdn.com/t/font_1184854_9pd30hlhy5g.eot?t=1557470900570#iefix') format('embedded-opentype'), /* IE6-IE8 */
+  url('data:application/x-font-woff2;charset=utf-8;base64,d09GMgABAAAAAAOwAAsAAAAACAAAAANiAAEAAAAAAAAAAAAAAAAAAAAAAAAAAAAAHEIGVgCDDAqDVIMYATYCJAMQCwoABCAFhG0HPhvwBsguMRUZ6a6kkXG5OE+DeMN3DX83JUKIh/7Hvt15b9ZE4nY/3YxmidDZjeCV0AhRvDRC8hL+X3b17zxnd3Ywo6V7dt1TPX32NyI6+06lSCHZAAEy2m1x+FdAAVqmyxNdCCXFG21HSEzshw04wmi1TWaL7YNjpkufzvJsa5ApZrSOAnCUQAPqxv03yT/IC/oriGfTwf8E3CfQblohv4PuQRlwkr4sEI+ddjNwCaOsqAytQnPB3hRv0KS1PKX7wGvv9+M/LI6iqdLXHj7qskHrr9hf8XX2b91zEBANZwd/iIpNIInLQuexgCC5KUC7mgy0DJY1Lfi1xvnFES72Xx6hqEQzvbwTbCFV+cWiEvzKoByhCCoXh87FrWjDa7yn2MnaZkX0xiRE6N/X3r5AIq5vVtPRq+m6Npl5qF3rJyFvLTzyefgF3XnYWMS6z52JB2LjFFRLst02e1IeccvGiWqFTKtQKuVyk4+TyWU8ZcyIfHfi2bH9Cae73Pj+k0nnewL86fSLvbqDOZAlY9HG0Zbvs3KulZPPennvb0bFRrVa6tuo5+rOuyjJiI1yjFGmoMjEyXOngRNSZ9nRVk2IlkjUws+uB72beDsBpiv1P30Vvr4tP9lV6dV7Ka93ZH85oT9myLyxdTuM3HjP/eQlZVMe3Ls/c/FF7N1f8bVrlu3vJHSZbwu+7eymgFdZP9zGe1uyCAANq3IrAPUd5wNQn/h//I5/4/DTjXZjdOOf1vAEP7+9F2yY6JZqVWgs+mqihk2pSXRTpiK1hL9QuvR54gXthpcGvP3eDKEealxOaDUUQdFiCqpWi8jEbkKTDlvQrNU2tNvQc7jDACpAZBvWLREIvS5A0e0bVL0eIBP7GpoM+wLNeguAducRf2aH5ZxhHRSbGbYhyxhyWomPNy0szK+UYPuQx0zjEo+gwFR0RlBZcWk604N9mA6xQRy2lzPGI54SL+omj2GPhyCBEhe2smIHY0J9SQlf9EnFVuKFMPsozIzBbBCLMYiTFeHDO52ZsMzPS2B2QzzMaEVDlVMBo0TO0ZEyxUobIHuUvkYNl/KMaJhdOYbhITyK8EK6iR3zGEkCEYpnuWBWTDFHh7igXgltxzdVFk+v9t7hIWinX5dRokZGk7xPhLFAkZlpsB0wGgEAAAA=') format('woff2'),
+  url('//at.alicdn.com/t/font_1184854_9pd30hlhy5g.woff?t=1557470900570') format('woff'),
+  url('//at.alicdn.com/t/font_1184854_9pd30hlhy5g.ttf?t=1557470900570') format('truetype'), /* chrome, firefox, opera, Safari, Android, iOS 4.2+ */
+  url('//at.alicdn.com/t/font_1184854_9pd30hlhy5g.svg?t=1557470900570#iconfont') format('svg'); /* iOS 4.1- */
+}
+
+.iconfont {
+  font-family: "iconfont" !important;
+  font-size: 16px;
+  font-style: normal;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}
+
+.iconcopy:before {
+  content: "\e611";
+}
+
+.iconstar:before {
+  content: "\e612";
+}
+
+.iconstar__:before {
+  content: "\e613";
+}

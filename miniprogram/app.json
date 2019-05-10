@@ -2,6 +2,7 @@
   "pages": [
     "pages/home/home",
     "pages/sort/sort",
+    "pages/detail/detail",
     "pages/index/index",
     "pages/userConsole/userConsole",
     "pages/storageConsole/storageConsole",

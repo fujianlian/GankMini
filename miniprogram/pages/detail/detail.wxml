@@ -1,0 +1,23 @@
+<!--pages/detail/detail.wxml-->
+<view class='tab-wrapper'>
+  <view class='content'>
+    <view class='title'>{{desc}}</view>
+    <view class='explan'>由于小程序暂不支持个人类型打开web-view组件，请点击下方复制按钮，到浏览器打开。</view>
+    <view class='url-text'>{{url}}</view>
+  </view>
+  <view class='operate-card'>
+    <view class='operate-btn' bindtap='copy'>
+      <text class='iconfont iconcopy:before' style='font-size:44rpx;color: #3bb44c'></text>
+      <view class='operate-text'>复制</view>
+    </view>
+    <view class='line'></view>
+    <view wx:if='{{isCollect}}' class='operate-btn' bindtap='collect'>
+      <text class='iconfont iconstar__:before' style='font-size:54rpx;color: #3bb44c'></text>
+      <view class='operate-text'>已收藏</view>
+    </view>
+    <view wx:else class='operate-btn' bindtap='collect'>
+      <text class='iconfont iconstar:before' style='font-size:54rpx;color: #3bb44c'></text>
+      <view class='operate-text'>收藏</view>
+    </view>
+  </view>
+</view>

@@ -33,7 +33,7 @@ Page({
       } else {
         this.getPhoto()
       }
-   
+
       if (home && this.getCurrentTime() - time < 60 * 60 * 24) {
         let homeList = this.data.homeList;
         homeList = JSON.parse(home)
@@ -83,11 +83,17 @@ Page({
         let result = res.data.results
         let category = res.data.category
         let homeList = that.data.homeList;
+        let h = 0;
         for (let i = 0; i < category.length; i++) {
+          if (category[i] === '福利') {
+            h = -1;
+            continue;
+          }
           let a = result[category[i]]
-          homeList[i] = a[a.length - 1]
-          homeList[i].publishedAt = homeList[i].publishedAt.substring(0, 10)
-          homeList[i].who = homeList[i].who + " · " + homeList[i].type
+          let b = i + h
+          homeList[b] = a[a.length - 1]
+          homeList[b].publishedAt = homeList[b].publishedAt.substring(0, 10)
+          homeList[b].who = homeList[b].who + " · " + homeList[b].type
         }
         that.setData({
           homeList
@@ -114,5 +120,13 @@ Page({
 
   getCurrentTime() {
     return Math.floor(((new Date()).getTime()) / 1000)
-  }
+  },
+
+  goDetail(event) {
+    let index = event.currentTarget.dataset.index
+    let content = this.data.homeList[index]
+    wx.navigateTo({
+      url: `/pages/detail/detail?id=${content._id}&desc=${content.desc}&url=${content.url}`,
+    })
+  },
 })

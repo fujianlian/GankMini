@@ -1,0 +1,67 @@
+/* pages/detail/detail.wxss */
+
+.content {
+  display: flex;
+  flex-flow: column;
+  padding: 30rpx;
+  background-color: white;
+}
+
+.title {
+  font-size: 36rpx;
+  line-height: 52rpx;
+  color: #333;
+  display: -webkit-box;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  word-break: break-all;
+  -webkit-box-orient: vertical;
+  -webkit-line-clamp: 2;
+}
+
+.explan {
+  margin-top: 30rpx;
+  font-size: 28rpx;
+  line-height: 45rpx;
+  color: #666;
+}
+
+.url-text {
+  margin-top: 30rpx;
+  font-size: 24rpx;
+  line-height: 38rpx;
+  color: #666;
+  display: -webkit-box;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  word-break: break-all;
+  -webkit-box-orient: vertical;
+  -webkit-line-clamp: 2;
+}
+
+.operate-card {
+  margin-top: 5rpx;
+  display: flex;
+  background: white;
+  height: 100rpx;
+  align-items: center;
+}
+
+.operate-btn {
+  width: 374.5rpx;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.operate-text {
+  font-size: 30rpx;
+  color: #3bb44c;
+  margin-left: 10rpx;
+}
+
+.line {
+  height: 60rpx;
+  width: 0.5rpx;
+  background: #f5f4f5
+}

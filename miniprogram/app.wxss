@@ -1,4 +1,6 @@
 /**app.wxss**/
+@import '/icon/iconfont.wxss';
+
 .container {
   display: flex;
   flex-direction: column;
