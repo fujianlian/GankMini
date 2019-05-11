@@ -5,8 +5,7 @@
     "pages/detail/detail",
     "pages/collect/collect",
     "pages/about/about",
-    "pages/person/person",
-    "pages/index/index"
+    "pages/person/person"
   ],
   "tabBar": {
     "color": "#999999",
