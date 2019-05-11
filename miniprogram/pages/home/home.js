@@ -16,6 +16,7 @@ Page({
     circular: true,
     interval: 2000,
     duration: 500,
+    openid: ""
   },
 
   /**
@@ -26,6 +27,7 @@ Page({
       let time = wx.getStorageSync('time')
       let photo = wx.getStorageSync('photoList')
       let home = wx.getStorageSync('homeList')
+      let openid = wx.getStorageSync('openid')
       // 如果有数据缓存，24小时内不再重新请求
       if (photo && this.getCurrentTime() - time < 60 * 60 * 24) {
         let photoList = this.data.photoList;
@@ -46,13 +48,20 @@ Page({
       } else {
         this.getHome()
       }
+
+      if (openid) {
+        this.setData({
+          openid: openid
+        })
+      } else {
+        this.onGetOpenid()
+      }
     } catch (e) {
       console.log(e)
       this.getPhoto()
       this.getHome()
-    }
-
-    this.onGetOpenid()
+      this.onGetOpenid()
+    };
   },
 
   getPhoto() {
@@ -137,13 +146,17 @@ Page({
   },
 
   onGetOpenid() {
+    let that = this
     // 调用云函数
     wx.cloud.callFunction({
       name: 'login',
       data: {},
       success: res => {
         console.log('[云函数] [login] user openid: ', res.result.openid)
-        app.globalData.openid = res.result.openid
+        wx.setStorageSync('openid', res.result.openid)
+        that.setData({
+          openid: res.result.openid
+        })
       },
       fail: err => {
         console.error('[云函数] [login] 调用失败', err)

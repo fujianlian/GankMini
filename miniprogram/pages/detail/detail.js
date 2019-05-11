@@ -33,6 +33,7 @@ Page({
     let image = options.image
     let _id = options._id === undefined ? "" : options._id
     let isCollect = options._id === undefined ? false : true
+
     this.setData({
       id: id,
       url: url,
@@ -41,10 +42,24 @@ Page({
       type: type,
       who: who,
       image: image,
-      openid: app.globalData.openid,
       _id: _id,
       isCollect: isCollect
     })
+
+    try {
+      let openid = wx.getStorageSync('openid')
+      if (openid) {
+        this.setData({
+          openid: openid
+        })
+      } else {
+        this.onGetOpenid()
+      }
+    } catch (e) {
+      console.log(e)
+      this.onGetOpenid()
+    }
+
     if (!isCollect) {
       this.onQuery()
     }
@@ -83,7 +98,8 @@ Page({
         time: this.data.time,
         type: this.data.type,
         who: this.data.who,
-        image: this.data.image
+        image: this.data.image,
+        createTime: this.getCurrentTime()
       },
       success: res => {
         this.setData({
@@ -149,5 +165,9 @@ Page({
         console.log("query err:", err)
       }
     })
+  },
+
+  getCurrentTime() {
+    return Math.floor(((new Date()).getTime()) / 1000)
   },
 })
