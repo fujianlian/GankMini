@@ -5,6 +5,8 @@ GankMini是[干货集中营](https://gank.io)移动端全家桶系列第三篇�
 
 [同款Flutter干货集中营](https://github.com/fujianlian/GankFlutter)
 
+[同款Kotlin干货集中营](https://github.com/fujianlian/GankKotlin)
+
 [同款React Native干货集中营](https://github.com/fujianlian/GankRN)
 
 ## 目录
