@@ -1,0 +1,15 @@
+{
+  "pages": [
+    "pages/index",
+    {
+      "path": "packageA/logs",
+      "subPackage": true
+    }
+  ],
+  "window": {
+    "backgroundTextStyle": "light",
+    "navigationBarBackgroundColor": "#fff",
+    "navigationBarTitleText": "干货营",
+    "navigationBarTextStyle": "black"
+  }
+}
