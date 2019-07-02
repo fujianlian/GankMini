@@ -8,6 +8,7 @@
 		"newFeature": true
 	},
 	"miniprogramRoot": "dist/",
+	"cloudfunctionRoot": "cloudfunctions/",
 	"compileType": "miniprogram",
 	"appid": "wxdbd04dddc817ab0a",
 	"projectname": "gankmini",

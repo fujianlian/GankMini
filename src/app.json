@@ -1,15 +1,51 @@
 {
   "pages": [
-    "pages/index",
-    {
-      "path": "packageA/logs",
-      "subPackage": true
-    }
+    "pages/home",
+    "pages/sort",
+    "pages/collect",
+    "pages/person",
+    "pages/detail",
+    "pages/about"
   ],
   "window": {
-    "backgroundTextStyle": "light",
-    "navigationBarBackgroundColor": "#fff",
+    "backgroundColor": "#f5f4f5",
+    "backgroundTextStyle": "dark",
+    "navigationBarBackgroundColor": "#3bb44c",
     "navigationBarTitleText": "干货营",
-    "navigationBarTextStyle": "black"
-  }
+    "navigationBarTextStyle": "white"
+  },
+  "tabBar": {
+    "color": "#999999",
+    "selectedColor": "#3bb44c",
+    "backgroundColor": "#fafafa",
+    "borderStyle": "white",
+    "list": [
+      {
+        "text": "最新",
+        "pagePath": "pages/home",
+        "iconPath": "static/tabs/home.png",
+        "selectedIconPath": "static/tabs/home_sel.png"
+      },
+      {
+        "text": "分类",
+        "pagePath": "pages/sort",
+        "iconPath": "static/tabs/sort.png",
+        "selectedIconPath": "static/tabs/sort_sel.png"
+      },
+      {
+        "text": "收藏",
+        "pagePath": "pages/collect",
+        "iconPath": "static/tabs/collect.png",
+        "selectedIconPath": "static/tabs/collect_sel.png"
+      },
+      {
+        "text": "我的",
+        "pagePath": "pages/person",
+        "iconPath": "static/tabs/person.png",
+        "selectedIconPath": "static/tabs/person_sel.png"
+      }
+    ],
+    "position": "bottom"
+  },
+  "cloud": true
 }
