@@ -67,16 +67,16 @@ Page({
   getPhoto() {
     let that = this
     wx.request({
-      url: `https://gank.io/api/data/福利/4/1`,
+      url: `https://gank.io/api/v2/data/category/Girl/type/Girl/page/1/count/10`,
       success(res) {
-        let result = res.data.results
-        for (let i = 0; i < result.length; i++) {
-          result[i] = result[i].url
+        console.log(res)
+        let result = res.data.data
+        let photoList = [] 
+        for (let i = 0; i < 5; i++) {
+          photoList[i] = result[i].url
         }
-        let photoList = that.data.photoList;
-        photoList = result
         that.setData({
-          photoList
+          photoList: photoList
         })
         try {
           wx.setStorageSync('photoList', JSON.stringify(photoList))
@@ -89,28 +89,16 @@ Page({
   },
 
   getHome() {
-    console.log("getHome")
     let that = this
     wx.request({
-      url: `https://gank.io/api/today`,
+      url: `https://gank.io/api/v2/hot/likes/category/Article/count/10`,
       success(res) {
-        let result = res.data.results
-        let category = res.data.category
-        let homeList = that.data.homeList;
-        let h = 0;
-        for (let i = 0; i < category.length; i++) {
-          if (category[i] === '福利') {
-            h = -1;
-            continue;
-          }
-          let a = result[category[i]]
-          let b = i + h
-          homeList[b] = a[a.length - 1]
-          homeList[b].publishedAt = homeList[b].publishedAt.substring(0, 10)
-          homeList[b].text = homeList[b].who + " · " + homeList[b].type
+        let homeList = res.data.data
+        for (var i = 0; i < homeList.length; i++) {
+          homeList[i].publishedAt = homeList[i].publishedAt.substring(0,10)
         }
         that.setData({
-          homeList
+          homeList: homeList
         })
         try {
           wx.setStorageSync('homeList', JSON.stringify(homeList))

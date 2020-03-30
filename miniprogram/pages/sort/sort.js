@@ -6,18 +6,19 @@ Page({
     /** 
      * 导航数据 
      */
-    topNavs: ['Android', 'iOS', '前端', '拓展资源', 'App', '瞎推荐', '休息视频'],
+    topNavs: ['Android', 'iOS', 'Flutter', '前端', '后端', 'App'],
+
+    topTypes: ['Android', 'iOS', 'Flutter', 'frontend', 'backend', 'app'],
 
     /** 
      * 当前页数下标
      */
-    pageIndexs: [1, 1, 1, 1, 1, 1, 1],
+    pageIndexs: [1, 1, 1, 1, 1, 1],
 
     /**
      * 页面数据
      */
     newsList: [
-      [],
       [],
       [],
       [],
@@ -71,12 +72,18 @@ Page({
    */
   getList(callback) {
     let that = this;
-    let type = this.data.topNavs[this.data.currentActiveNavIndex]
+    let type = this.data.topTypes[this.data.currentActiveNavIndex]
     let pageIndex = this.data.pageIndexs[this.data.currentActiveNavIndex]
+    var url = ""
+    if (type == "app") {
+      url = `https://gank.io/api/v2/data/category/GanHuo/type/${type}/page/${pageIndex}/count/20`
+    } else {
+      url = `https://gank.io/api/v2/data/category/Article/type/${type}/page/${pageIndex}/count/20`
+    }
     wx.request({
-      url: `https://gank.io/api/data/${type}/16/${pageIndex}`,
+      url: url,
       success(res) {
-        let result = res.data.results
+        let result = res.data.data
         for (let i = 0; i < result.length; i++) {
           result[i].publishedAt = result[i].publishedAt.substring(0, 10)
         }
