@@ -8,7 +8,7 @@
         </swiper-item>
       </block>
     </swiper>
-    <gank v-for="item in homeList" v-bind:key="item._id" :entity="item">
+    <gank v-for="item in homeList" v-bind:key="item" :entity="item">
     </gank>
   </scroll-view>
 </template>
@@ -36,12 +36,15 @@
     },
     methods: {
       getPhoto () {
-        this.$http.get('data/福利/5/1').then(res => {
-          let result = res.data.results
-          for (let i = 0; i < result.length; i++) {
-            result[i] = result[i].url
+        this.$http.get('v2/data/category/Girl/type/Girl/page/1/count/10').then(res => {
+          let result = res.data.data
+          let photos = []
+          for (let i = 0; i < 5; i++) {
+            if (i < result.length) {
+              photos[i] = result[i].url
+            }
           }
-          this.photoList = result
+          this.photoList = photos
           try {
             wx.setStorageSync('photoList', JSON.stringify(this.photoList))
             wx.setStorageSync('photoTime', this.getCurrentTime())
@@ -54,20 +57,10 @@
       },
 
       getHome () {
-        this.$http.get('today').then(res => {
-          let result = res.data.results
-          let category = res.data.category
-          let homeList = this.homeList
-          let h = 0
-          for (let i = 0; i < category.length; i++) {
-            if (category[i] === '福利') {
-              h = -1
-              continue
-            }
-            let a = result[category[i]]
-            let b = i + h
-            homeList[b] = a[a.length - 1]
-            homeList[b].publishedAt = homeList[b].publishedAt.substring(0, 10)
+        this.$http.get('v2/hot/likes/category/Article/count/10').then(res => {
+          let homeList = res.data.data
+          for (let i = 0; i < homeList.length; i++) {
+            homeList[i].publishedAt = homeList[i].publishedAt.substring(0, 10)
           }
           this.homeList = homeList
           try {

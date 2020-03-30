@@ -7,7 +7,7 @@
       </div>
     </div>
     <div class='sort-item-date-wrapper'>
-      <span class="sort-item-who">{{entity.who}} · {{entity.type}}</span>
+      <span class="sort-item-who">{{entity.author}} · {{entity.type}}</span>
       <span class="sort-item-date">{{isCollect?entity.time:entity.publishedAt}}</span>
     </div>
   </div>

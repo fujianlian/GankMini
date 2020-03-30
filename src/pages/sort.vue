@@ -14,7 +14,7 @@
     <swiper class="swiper-wrapper" @change="swiperChange" :current='currentActiveNavIndex'>
       <block v-for="(list,index) in newsList" v-bind:key='index'>
         <swiper-item style="overflow: scroll">
-          <gank v-for="(item, index1) in list" v-bind:key="list[index1]._id" :entity="item">
+          <gank v-for="(item, index1) in list" v-bind:key="item" :entity="item">
           </gank>
         </swiper-item>
       </block>
